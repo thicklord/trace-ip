@@ -7,7 +7,7 @@ import os, shutil
 from datetime import date
 import unicodedata, unidecode
 from alive_progress import alive_bar
-
+import pandas as pd
 
 
 def trace_ip(file_in):
@@ -84,9 +84,38 @@ def trace_ip(file_in):
 #     json.dump(data, iwrt)
 
 
+def json_to_excel(json_file):
+    
+    # still working out bugs with formatting of JSON conversion
+    file_name = pathlib2.Path(json_file).name
+    file_name = file_name.replace('json', 'xlsx')
+    
+    print(file_name)
+
+    xlsx_out = os.path.join(pathlib2.Path(json_file).parent, file_name)
+    
+    try:
+
+        df_json = pd.read_json(json_file)
+
+        df_json.to_excel(xlsx_out)
+
+        print("converted JSON to excel file: %s" % xlsx_out)
+
+    except Exception as EX:
+        print("error converting JSON to xlsx: %s" % str(EX))
+
+    
+    
+    
+    
+    pass
+
+
 if __name__ == "__main__":
-    file_quantified = str("2020-12-15_www.dhpsupply.com-access_log_IPs-quantified.json")
-    trace_ip(file_quantified)
+    
+    json_to_excel("2022-03-08_access_log_merged_IPs-results.json")
+    
 
 
 

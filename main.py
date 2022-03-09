@@ -1,5 +1,5 @@
 from parse import parser
-from trace_ip import trace_ip
+from trace_ip import trace_ip, json_to_excel
 from quantify_ips import quantify
 from pathlib2 import Path
 import sys
@@ -34,7 +34,7 @@ parsed_results = parser(local_file)
 # quantify IPs
 quantified_file = quantify(parsed_results)
 
-# IP trace with geolocation
+# IP trace with geolocation dump to JSON
 results_file = trace_ip(quantified_file)
 
 print(results_file)

@@ -1,3 +1,6 @@
+progress
+pandas
+openpyxl
 importlib_metadata
 Pygments
 ipaddr

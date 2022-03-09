@@ -1,9 +1,6 @@
-import os, shutil
+import os
+
 import simplejson as json
-import operator
-from alive_progress import alive_bar
-import time
-from progress.bar import Bar
 
 
 def quantify(in_file, minimum_attempts=200):
@@ -15,8 +12,6 @@ def quantify(in_file, minimum_attempts=200):
     
     pfilename_split = list(os.path.splitext(parsed_infile))
 
-    # @2d0: add quantify progress bar
-    # with alive_bar(len(rdr.readlines()), bar="filling", spinner="notes") as bar:
     with open(parsed_infile, 'r') as rdr:
         
         print("Quantifying parsed IPs...")
@@ -53,8 +48,10 @@ def quantify(in_file, minimum_attempts=200):
 
 
 if __name__ == "__main__":
-    # //db&t
-    parsed_file = "2022-02-27_company1-access_log_IPs.txt"
-    quantify(parsed_file)
-    # //db&t
+    # # //db&t
+    # parsed_file = "2022-02-27_company1-access_log_IPs.txt"
+    # quantify(parsed_file)
+    # # //db&t
+    
+    pass
 
