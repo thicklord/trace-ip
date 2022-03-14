@@ -19,7 +19,8 @@ else:
 	in_file = "company2-access_log_2021-08-24"
 
 	local_file = os.path.join(os.getcwd(), in_file)
-#
+
+
 # if in_file != local_file:
 #     shutil.copyfile(in_file, local_file)
 # else:

@@ -45,33 +45,21 @@ def trace_ip(file_in):
             # time.sleep(.0005)
             bar()
             
-            # build data dictionary for clean JSON formatting later, include all details from IPINFO API dump
-            data[k] = {
+            # # build data dictionary for clean JSON formatting later, include all details from IPINFO API dump
+            tmp_dct = {
+                "IP_address": k,
                 "access_attempts": v,
                 "details": details.all
             }
             
             # decode all data for IP data in dictionary
-            for d, dv in data[k]['details'].items():
-                data[k]['details'][d] = unidecode.unidecode(u'%s' % dv)
-                
-            try:
-                # # debug test line: print all details for all originating IP outside US
-                # if details.country != "US":
-                #     print(k, data[k], sep=": ")
-                
-                # append data to working output list
-                data_by_ip_list.append({k: data[k]})
+            for d, dv in tmp_dct['details'].items():
+                tmp_dct['details'][d] = unidecode.unidecode(u'%s' % dv)
+
+            data_by_ip_list.append(tmp_dct)
             
-            except AttributeError as AE:
-                # # //db&t
-                # print("no country")
-                # print(details.all)
-                # # //db&t
-                
-                data_by_ip_list.append({k: data[k]})
-                continue
-        
+            del tmp_dct
+            
     json.dump(data_by_ip_list, iwrt, indent=4)
     
     # writer close for appending to file
