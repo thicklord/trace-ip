@@ -1,13 +1,10 @@
-import ipinfo
-import pathlib2
 import json
-import progressbar
-import time
-import os, shutil
-from datetime import date
-import unicodedata, unidecode
-from alive_progress import alive_bar
+import os
+import ipinfo
 import pandas as pd
+import pathlib2
+import unidecode
+from alive_progress import alive_bar
 
 
 def trace_ip(file_in):

@@ -21,10 +21,10 @@ else:
 	local_file = os.path.join(os.getcwd(), in_file)
 
 
-# if in_file != local_file:
-#     shutil.copyfile(in_file, local_file)
+# if file_given != local_file:
+#     shutil.copyfile(file_given, local_file)
 # else:
-#     local_file = in_file
+#     local_file = file_given
 
 # for shorthand file path
 local_file = os.path.basename(local_file)

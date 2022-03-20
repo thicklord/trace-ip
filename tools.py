@@ -1,7 +1,6 @@
-import shutil
-import zipfile
-from datetime import datetime
 import os
+import shutil
+from datetime import datetime
 
 
 def dir_mkr(specified_path):  # function that creates a directory if it does not exist
